@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styled from "styled-components";
 import { TodoHead } from "./TodoHead";
 import { TodoCreate } from "./TodoCreate";
@@ -17,31 +17,27 @@ const TodoTemplateBox = styled.div`
 `;
 
 export const TodoTemplate = () => {
-  const [things, setThings] = useState([
-    {
-      id: 1,
-      text: "밥먹기",
-      checked: true,
-    },
-    {
-      id: 2,
-      text: "알바하기",
+  const [things, setThings] = useState([]);
+
+  const nextId = useRef(0);
+  console.log(nextId);
+  const handleSubmit = (text) => {
+    const todo = {
+      id: nextId.current,
+      text,
       checked: false,
-    },
-    {
-      id: 3,
-      text: "공부하기",
-      checked: true,
-    },
-  ]);
+    };
+    console.log(text);
+    setThings(things.concat(todo));
+    nextId.current += 1;
+    // console.log(todo);
+  };
 
   return (
-    <>
-      <TodoTemplateBox>
-        <TodoHead></TodoHead>
-        <TodoCreate></TodoCreate>
-        <TodoList things={things}></TodoList>
-      </TodoTemplateBox>
-    </>
+    <TodoTemplateBox>
+      <TodoHead />
+      <TodoCreate onSubmit={handleSubmit} />
+      <TodoList things={things} />
+    </TodoTemplateBox>
   );
 };

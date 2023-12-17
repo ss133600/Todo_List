@@ -27,7 +27,7 @@ const TodoHeadBox = styled.div`
   }
 `;
 
-export const TodoHead = ({ children }) => {
+export const TodoHead = () => {
   return (
     <>
       <TodoHeadBox>

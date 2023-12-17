@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -18,17 +19,51 @@ const InputBtn = styled.button`
   /* border-radius: 10px; */
 `;
 
-export const TodoCreate = () => {
+export const TodoCreate = (props) => {
+  const [con, setCon] = useState("");
+  // const ref = useRef();
+
+  const handleChange = (e) => {
+    setCon(e.target.value);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSubmit();
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!con) return;
+    props.onSubmit(con);
+    setCon("");
+  };
+
+  // useEffect(() => {
+  //   ref.current.focus();
+  // }, []);
+
   return (
     <>
       <Container>
-        <form>
+        <form onSubmit={handleSubmit}>
           <TextInput
+            // ref={ref}
             type="text"
             name="text"
             placeholder="할 일을 입력해주세요"
+            autocomplete="off"
+            value={con}
+            onChange={handleChange}
           />
-          <InputBtn type="submit">Add</InputBtn>
+          <InputBtn
+            type="submit"
+            onClick={handleSubmit}
+            onKeyPress={handleKeyPress}
+          >
+            Add
+          </InputBtn>
         </form>
       </Container>
     </>

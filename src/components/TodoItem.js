@@ -48,6 +48,8 @@ const DeleteBox = styled.div`
 `;
 export const TodoItem = ({ todo }) => {
   const { id, text, checked } = todo;
+  //TodoList에서 props로 넘김
+
   return (
     <>
       <TodoItemBox>
