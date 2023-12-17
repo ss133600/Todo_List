@@ -4,19 +4,43 @@ import styled from "styled-components";
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
+  position: relative;
+  margin-bottom: 40px;
 `;
 const TextInput = styled.input`
   width: 350px;
-  padding: 10px;
-  margin: 15px 10px;
+  height: 25px;
+  /* padding: 10px;
+  margin: 0px 0px; */
+  padding: 15px;
   font-size: 16px;
+  border: none;
+  border-radius: 50px;
+  /* position: absolute; */
+  position: absolute;
+  left: 40px;
+  background-color: whitesmoke;
+  outline: none;
+  padding-left: 30px;
+  
+  }
 `;
 const InputBtn = styled.button`
-  width: 60px;
-  height: 30px;
-  /* border-radius: 10px; */
+  width: 85px;
+  height: 56px;
+  border-radius: 50px;
+  line-height: 45px;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff7a7a;
+  border: none;
+  position: absolute;
+  left: 380px;
 `;
 
 export const TodoCreate = (props) => {

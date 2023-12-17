@@ -5,15 +5,20 @@ const TodoListBox = styled.div`
   /* width: 100%; */
   height: 100%;
   padding: 30px;
-  background-color: gray;
+  background-color: white;
 `;
 
-export const TodoList = ({ things, onRemove }) => {
+export const TodoList = ({ things, onRemove, onToggle }) => {
   return (
     <>
       <TodoListBox>
         {things.map((todo) => (
-          <TodoItem todo={todo} key={todo.id} onRemove={onRemove} />
+          <TodoItem
+            todo={todo}
+            key={todo.id}
+            onRemove={onRemove}
+            onToggle={onToggle}
+          />
         ))}
       </TodoListBox>
     </>

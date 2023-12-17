@@ -6,9 +6,9 @@ import { TodoList } from "./TodoList";
 
 const TodoTemplateBox = styled.div`
   width: 500px;
-  height: 700px;
+  height: 750px;
   background-color: white;
-  border-radius: 14px;
+  border-radius: 30px;
   overflow: hidden;
   margin: 0 auto;
   margin-top: 100px;
@@ -18,6 +18,7 @@ const TodoTemplateBox = styled.div`
 
 export const TodoTemplate = () => {
   const [things, setThings] = useState([]);
+  console.log(things);
 
   const nextId = useRef(0);
   // console.log(nextId);
@@ -37,11 +38,19 @@ export const TodoTemplate = () => {
     setThings(things.filter((todo) => todo.id !== id));
   };
 
+  const onToggle = (id) => {
+    setThings(
+      things.map((todo) => {
+        return todo.id === id ? { ...todo, checked: !todo.checked } : todo;
+      })
+    );
+  };
+
   return (
     <TodoTemplateBox>
       <TodoHead />
       <TodoCreate onSubmit={handleSubmit} />
-      <TodoList things={things} onRemove={onRemove} />
+      <TodoList things={things} onRemove={onRemove} onToggle={onToggle} />
     </TodoTemplateBox>
   );
 };
