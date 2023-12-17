@@ -1,28 +1,21 @@
 import styled from "styled-components";
 
-const Template = styled.div`
+const TodoTemplateBox = styled.div`
   width: 500px;
-  border-radius: 4px;
+  height: 700px;
+  background-color: white;
+  border-radius: 14px;
   overflow: hidden;
   margin: 0 auto;
-`;
-const TodoTitle = styled.div`
-  font-size: 20px;
+  margin-top: 100px;
   display: flex;
-  color: white;
-  align-items: center;
-  justify-content: center;
-  background-color: gainsboro;
-`;
-const Content = styled.div`
-  background-color: white;
+  flex-direction: column;
 `;
 
 export const TodoTemplate = ({ children }) => {
   return (
-    <Template>
-      <TodoTitle>투두리스트</TodoTitle>
-      <Content>{children}</Content>
-    </Template>
+    <>
+      <TodoTemplateBox>{children}</TodoTemplateBox>
+    </>
   );
 };
