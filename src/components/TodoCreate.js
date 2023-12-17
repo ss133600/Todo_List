@@ -39,6 +39,7 @@ export const TodoCreate = (props) => {
     props.onSubmit(con);
     setCon("");
   };
+  // console.log(props);
 
   // useEffect(() => {
   //   ref.current.focus();

@@ -8,12 +8,12 @@ const TodoListBox = styled.div`
   background-color: gray;
 `;
 
-export const TodoList = ({ things }) => {
+export const TodoList = ({ things, onRemove }) => {
   return (
     <>
       <TodoListBox>
         {things.map((todo) => (
-          <TodoItem todo={todo} key={todo.id} />
+          <TodoItem todo={todo} key={todo.id} onRemove={onRemove} />
         ))}
       </TodoListBox>
     </>

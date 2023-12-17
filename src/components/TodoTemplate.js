@@ -20,24 +20,28 @@ export const TodoTemplate = () => {
   const [things, setThings] = useState([]);
 
   const nextId = useRef(0);
-  console.log(nextId);
+  // console.log(nextId);
   const handleSubmit = (text) => {
     const todo = {
       id: nextId.current,
       text,
       checked: false,
     };
-    console.log(text);
+    // console.log(text);
     setThings(things.concat(todo));
     nextId.current += 1;
     // console.log(todo);
+  };
+
+  const onRemove = (id) => {
+    setThings(things.filter((todo) => todo.id !== id));
   };
 
   return (
     <TodoTemplateBox>
       <TodoHead />
       <TodoCreate onSubmit={handleSubmit} />
-      <TodoList things={things} />
+      <TodoList things={things} onRemove={onRemove} />
     </TodoTemplateBox>
   );
 };

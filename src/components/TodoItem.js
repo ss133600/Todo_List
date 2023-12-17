@@ -46,7 +46,7 @@ const DeleteBox = styled.div`
   width: 20px;
   height: 20px;
 `;
-export const TodoItem = ({ todo }) => {
+export const TodoItem = ({ todo, onRemove }) => {
   const { id, text, checked } = todo;
   //TodoList에서 props로 넘김
 
@@ -68,7 +68,7 @@ export const TodoItem = ({ todo }) => {
         >
           {text}
         </Work>
-        <DeleteBtn>
+        <DeleteBtn onClick={() => onRemove(id)}>
           <DeleteBox>
             <FontAwesomeIcon icon={faXmark} />
           </DeleteBox>
