@@ -38,6 +38,10 @@ export const TodoTemplate = () => {
     setThings(things.filter((todo) => todo.id !== id));
   };
 
+  // const onUpdate = (id) => {
+  //   setThings(things.((todo)))
+  // }
+
   const onToggle = (id) => {
     setThings(
       things.map((todo) => {

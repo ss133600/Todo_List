@@ -24,8 +24,6 @@ const TextInput = styled.input`
   background-color: whitesmoke;
   outline: none;
   padding-left: 30px;
-  
-  }
 `;
 const InputBtn = styled.button`
   width: 85px;

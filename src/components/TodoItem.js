@@ -1,5 +1,9 @@
-import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCircleCheck,
+  faPencil,
+  faTrashCan,
+} from "@fortawesome/free-solid-svg-icons";
+// import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 
@@ -60,7 +64,20 @@ const DeleteBox = styled.div`
   /* width: 20px;
   height: 20px; */
   font-size: 21px;
-  color: #e0e0e0;
+  color: #a0a0a0;
+`;
+const UpdateBtn = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+`;
+const UpdateBox = styled.div`
+  margin-right: 30px;
+  font-size: 21px;
+  color: #a0a0a0;
 `;
 export const TodoItem = ({ todo, onRemove, onToggle }) => {
   const { id, text, checked } = todo;
@@ -84,9 +101,15 @@ export const TodoItem = ({ todo, onRemove, onToggle }) => {
         >
           {text}
         </Work>
+        {/* <UpdateBtn onClick={() => onUpdate(id)}>
+          <UpdateBox>
+            <FontAwesomeIcon icon={faPencil} />
+          </UpdateBox>
+        </UpdateBtn> */}
         <DeleteBtn onClick={() => onRemove(id)}>
           <DeleteBox>
-            <FontAwesomeIcon icon={faXmark} />
+            {/* <FontAwesomeIcon icon={faXmark} /> */}
+            <FontAwesomeIcon icon={faTrashCan} />
           </DeleteBox>
         </DeleteBtn>
       </TodoItemBox>
