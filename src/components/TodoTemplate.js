@@ -13,7 +13,7 @@ const TodoTemplateBox = styled.div`
   border-radius: 30px;
   overflow: hidden;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   overflow: auto;
@@ -22,7 +22,6 @@ const TodoTemplateBox = styled.div`
 export const TodoTemplate = () => {
   const [things, setThings] = useState([]);
   console.log(things);
-  // const [edited, setEdited] = useState(false);
 
   const nextId = useRef(0);
   // console.log(nextId);
@@ -36,6 +35,7 @@ export const TodoTemplate = () => {
     setThings(things.concat(todo));
     nextId.current += 1;
     // console.log(todo);
+    localStorage.setItem("things", JSON.stringify(todo));
   };
 
   const onUpdate = (updateText, id) => {
@@ -58,6 +58,7 @@ export const TodoTemplate = () => {
 
   const onRemove = (id) => {
     setThings(things.filter((todo) => todo.id !== id));
+    localStorage.setItem("things", JSON.stringify(onRemove));
   };
 
   const onToggle = (id) => {

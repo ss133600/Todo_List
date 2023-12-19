@@ -1,10 +1,14 @@
+import { faXbox } from "@fortawesome/free-brands-svg-icons";
 import {
+  faCheck,
   faCircleCheck,
   faPencil,
   faTrashCan,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 // import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
 import styled from "styled-components";
 
 const TodoItemBox = styled.div`
@@ -80,10 +84,30 @@ const UpdateBox = styled.div`
   font-size: 20px;
   color: #a0a0a0;
 `;
+
+const Start = styled.div``;
+const Finish = styled.div``;
 export const TodoItem = ({ todo, onRemove, onToggle, onUpdate }) => {
   const { id, text, checked } = todo;
   //TodoList에서 props로 넘김
+  const [edited, setEdited] = useState(false);
+  // const [newText, setNewTest] = useState(TodoItem.text);
+  // const onChangeEditInput = (e) => {
+  //   setNewTest(e.target.value);
+  // };
+  const onClickEditButton = () => {
+    setEdited(true);
+  };
 
+  // const onClickSubmitButton = () => {
+  //   const nextTodoList = TodoItem.map((todo) => ({
+  //     ...todo,
+  //     text: todo.id === TodoItem.id ? newText : todo.text,
+  //   }));
+  //   TodoItem(nextTodoList);
+
+  //   setEdited(false);
+  // };
   return (
     <>
       <TodoItemBox>
@@ -106,7 +130,21 @@ export const TodoItem = ({ todo, onRemove, onToggle, onUpdate }) => {
 
         <UpdateBtn onClick={() => onUpdate(onUpdate)}>
           <UpdateBox>
-            <FontAwesomeIcon icon={faPencil} />
+            {!TodoItem.checked ? (
+              edited ? (
+                <Finish>
+                  <FontAwesomeIcon icon={faCheck} />
+                </Finish>
+              ) : (
+                <Start
+                  type="button"
+                  className="todoapp__item-edit-btn"
+                  onClick={onClickEditButton}
+                >
+                  <FontAwesomeIcon icon={faPencil} />
+                </Start>
+              )
+            ) : null}
           </UpdateBox>
         </UpdateBtn>
         <DeleteBtn onClick={() => onRemove(id)}>
