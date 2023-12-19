@@ -10,7 +10,8 @@ const Container = styled.div`
   margin-bottom: 40px;
 `;
 const TextInput = styled.input`
-  width: 350px;
+  max-width: 300px;
+  width: 100%;
   height: 25px;
   /* padding: 10px;
   margin: 0px 0px; */
@@ -25,7 +26,12 @@ const TextInput = styled.input`
   outline: none;
   padding-left: 30px;
 `;
+const InputBox = styled.div`
+  margin: 0 auto;
+  justify-content: c;
+`;
 const InputBtn = styled.button`
+  margin: 0 auto;
   width: 85px;
   height: 56px;
   border-radius: 50px;
@@ -38,7 +44,7 @@ const InputBtn = styled.button`
   background-color: #ff7a7a;
   border: none;
   position: absolute;
-  left: 380px;
+  left: 340px;
 `;
 
 export const TodoCreate = (props) => {
@@ -80,13 +86,15 @@ export const TodoCreate = (props) => {
             value={con}
             onChange={handleChange}
           />
-          <InputBtn
-            type="submit"
-            onClick={handleSubmit}
-            onKeyPress={handleKeyPress}
-          >
-            Add
-          </InputBtn>
+          <InputBox>
+            <InputBtn
+              type="submit"
+              onClick={handleSubmit}
+              onKeyPress={handleKeyPress}
+            >
+              Add
+            </InputBtn>
+          </InputBox>
         </form>
       </Container>
     </>

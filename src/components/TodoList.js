@@ -8,7 +8,7 @@ const TodoListBox = styled.div`
   background-color: white;
 `;
 
-export const TodoList = ({ things, onRemove, onToggle }) => {
+export const TodoList = ({ things, onRemove, onToggle, onUpdate }) => {
   return (
     <>
       <TodoListBox>
@@ -18,6 +18,7 @@ export const TodoList = ({ things, onRemove, onToggle }) => {
             key={todo.id}
             onRemove={onRemove}
             onToggle={onToggle}
+            onUpdate={onUpdate}
           />
         ))}
       </TodoListBox>

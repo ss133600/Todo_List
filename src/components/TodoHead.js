@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import { CustomDate } from "./CustomDate";
 
 const TodoHeadBox = styled.div`
+  max-width: 350px;
   width: 100%;
   display: flex;
   /* padding: 20px 0px 0px 40px; */
@@ -15,6 +17,8 @@ const TodoHeadBox = styled.div`
   /* margin-bottom: 40px; */
 
   .Title {
+    max-width: 350px;
+    width: 100%;
     margin: 0;
     font-size: 50px;
     font-weight: 900;
@@ -35,8 +39,12 @@ export const TodoHead = () => {
     <>
       <TodoHeadBox>
         <div className="Title">To-Do List</div>
-        <div className="date">2023년 12월 18일 월요일</div>
+        <div className="date">
+          <CustomDate />
+        </div>
       </TodoHeadBox>
     </>
   );
 };
+
+// 2023년 12월 18일 월요일

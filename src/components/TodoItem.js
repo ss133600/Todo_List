@@ -50,6 +50,7 @@ const Work = styled.p`
   font-weight: 500;
   /* color: rebeccapurple; */
   align-items: center;
+  cursor: pointer;
 `;
 const DeleteBtn = styled.div`
   display: flex;
@@ -75,11 +76,11 @@ const UpdateBtn = styled.div`
   cursor: pointer;
 `;
 const UpdateBox = styled.div`
-  margin-right: 30px;
-  font-size: 21px;
+  margin-right: 28px;
+  font-size: 20px;
   color: #a0a0a0;
 `;
-export const TodoItem = ({ todo, onRemove, onToggle }) => {
+export const TodoItem = ({ todo, onRemove, onToggle, onUpdate }) => {
   const { id, text, checked } = todo;
   //TodoList에서 props로 넘김
 
@@ -94,6 +95,7 @@ export const TodoItem = ({ todo, onRemove, onToggle }) => {
           ) : null}
         </DoneBtn>
         <Work
+          onClick={() => onToggle(id)}
           style={{
             textDecoration: checked ? "line-through" : null,
             color: checked ? "#ccc" : "#686868",
@@ -101,11 +103,12 @@ export const TodoItem = ({ todo, onRemove, onToggle }) => {
         >
           {text}
         </Work>
-        {/* <UpdateBtn onClick={() => onUpdate(id)}>
+
+        <UpdateBtn onClick={() => onUpdate(onUpdate)}>
           <UpdateBox>
             <FontAwesomeIcon icon={faPencil} />
           </UpdateBox>
-        </UpdateBtn> */}
+        </UpdateBtn>
         <DeleteBtn onClick={() => onRemove(id)}>
           <DeleteBox>
             {/* <FontAwesomeIcon icon={faXmark} /> */}

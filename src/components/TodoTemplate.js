@@ -5,7 +5,9 @@ import { TodoCreate } from "./TodoCreate";
 import { TodoList } from "./TodoList";
 
 const TodoTemplateBox = styled.div`
-  width: 500px;
+  max-width: 450px;
+  width: 100%;
+  /* width: 450px; */
   height: 750px;
   background-color: white;
   border-radius: 30px;
@@ -14,11 +16,13 @@ const TodoTemplateBox = styled.div`
   margin-top: 100px;
   display: flex;
   flex-direction: column;
+  overflow: auto;
 `;
 
 export const TodoTemplate = () => {
   const [things, setThings] = useState([]);
   console.log(things);
+  // const [edited, setEdited] = useState(false);
 
   const nextId = useRef(0);
   // console.log(nextId);
@@ -34,13 +38,27 @@ export const TodoTemplate = () => {
     // console.log(todo);
   };
 
+  const onUpdate = (updateText, id) => {
+    setThings(
+      things.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            text: updateText,
+          };
+        }
+        return todo;
+      })
+    );
+  };
+
+  // const saveText = (text) => {
+  //   setThings([...things, text]);
+  // };
+
   const onRemove = (id) => {
     setThings(things.filter((todo) => todo.id !== id));
   };
-
-  // const onUpdate = (id) => {
-  //   setThings(things.((todo)))
-  // }
 
   const onToggle = (id) => {
     setThings(
@@ -54,7 +72,12 @@ export const TodoTemplate = () => {
     <TodoTemplateBox>
       <TodoHead />
       <TodoCreate onSubmit={handleSubmit} />
-      <TodoList things={things} onRemove={onRemove} onToggle={onToggle} />
+      <TodoList
+        things={things}
+        onRemove={onRemove}
+        onToggle={onToggle}
+        onUpdate={onUpdate}
+      />
     </TodoTemplateBox>
   );
 };
