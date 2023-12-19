@@ -12,6 +12,8 @@ import { useState } from "react";
 import styled from "styled-components";
 
 const TodoItemBox = styled.div`
+  max-width: 350px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -43,8 +45,9 @@ const CheckBox = styled.div`
 
 const Work = styled.p`
   display: flex;
-  width: 350px;
-  height: 20px;
+  max-width: 350px;
+  width: 100%;
+  /* height: 20px; */
   margin: 10px;
   padding: 7px;
   /* background-color: gainsboro; */
@@ -136,11 +139,7 @@ export const TodoItem = ({ todo, onRemove, onToggle, onUpdate }) => {
                   <FontAwesomeIcon icon={faCheck} />
                 </Finish>
               ) : (
-                <Start
-                  type="button"
-                  className="todoapp__item-edit-btn"
-                  onClick={onClickEditButton}
-                >
+                <Start type="button" onClick={onClickEditButton}>
                   <FontAwesomeIcon icon={faPencil} />
                 </Start>
               )

@@ -1,8 +1,9 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { TodoHead } from "./TodoHead";
 import { TodoCreate } from "./TodoCreate";
 import { TodoList } from "./TodoList";
+import { TodoItem } from "./TodoItem";
 
 const TodoTemplateBox = styled.div`
   max-width: 450px;
@@ -25,6 +26,7 @@ export const TodoTemplate = () => {
 
   const nextId = useRef(0);
   // console.log(nextId);
+
   const handleSubmit = (text) => {
     const todo = {
       id: nextId.current,
@@ -35,7 +37,10 @@ export const TodoTemplate = () => {
     setThings(things.concat(todo));
     nextId.current += 1;
     // console.log(todo);
-    localStorage.setItem("things", JSON.stringify(todo));
+    // setText(nextId);
+    localStorage.setItem("things", JSON.stringify(todo), [todo]);
+
+    // console.log;
   };
 
   const onUpdate = (updateText, id) => {
@@ -50,6 +55,7 @@ export const TodoTemplate = () => {
         return todo;
       })
     );
+    // localStorage.setItem("things", JSON.stringify(onUpdate));
   };
 
   // const saveText = (text) => {
