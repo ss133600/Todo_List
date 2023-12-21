@@ -18,12 +18,12 @@ export const CustomDate = () => {
           : today.getDay() === 2
           ? "화요일"
           : today.getDay() === 3
-          ? "wednesday"
+          ? "수요일"
           : today.getDay() === 4
-          ? "Thursday"
+          ? "목요일"
           : today.getDay() === 5
-          ? "Friday"
-          : "Saturday"}
+          ? "금요일"
+          : "토요일"}
       </Dday>
       <Dday></Dday>
     </div>
