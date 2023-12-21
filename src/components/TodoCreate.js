@@ -85,6 +85,7 @@ export const TodoCreate = (props) => {
             autocomplete="off"
             value={con}
             onChange={handleChange}
+            maxLength={20}
           />
           <InputBox>
             <InputBtn
