@@ -18,7 +18,7 @@ export const TodoList = ({ things, onRemove, onToggle, onUpdate }) => {
             key={todo.id}
             onRemove={onRemove}
             onToggle={onToggle}
-            onUpdate={onUpdate}
+            // onUpdate={onUpdate}
           />
         ))}
       </TodoListBox>

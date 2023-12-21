@@ -43,7 +43,7 @@ export const TodoTemplate = () => {
     // console.log(todo);
     // setText(nextId);
     // localStorage.setItem("things", JSON.stringify(todo));
-    // // localStorage.setItem("things", JSON.stringify[...todo, things]);
+    // // localStorage.setItem("things", JSON.stringify[...todo,);
 
     // console.log;
   };

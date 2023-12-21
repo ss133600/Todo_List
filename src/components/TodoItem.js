@@ -1,10 +1,8 @@
-import { faXbox } from "@fortawesome/free-brands-svg-icons";
 import {
   faCheck,
   faCircleCheck,
   faPencil,
   faTrashCan,
-  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 // import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -131,7 +129,23 @@ export const TodoItem = ({ todo, onRemove, onToggle, onUpdate }) => {
           {text}
         </Work>
 
-        <UpdateBtn onClick={() => onUpdate(onUpdate)}>
+        <UpdateBtn onClick={() => onToggle(id)}>
+          <UpdateBox>
+            {!UpdateBtn.checked ? (
+              edited ? (
+                <Finish>
+                  <FontAwesomeIcon icon={faCheck} />
+                </Finish>
+              ) : (
+                <Start type="button" onClick={onClickEditButton}>
+                  <FontAwesomeIcon icon={faPencil} />
+                </Start>
+              )
+            ) : null}
+          </UpdateBox>
+        </UpdateBtn>
+
+        {/* <UpdateBtn onClick={() => onToggle(onUpdate)}>
           <UpdateBox>
             {!TodoItem.checked ? (
               edited ? (
@@ -145,7 +159,7 @@ export const TodoItem = ({ todo, onRemove, onToggle, onUpdate }) => {
               )
             ) : null}
           </UpdateBox>
-        </UpdateBtn>
+        </UpdateBtn> */}
         <DeleteBtn onClick={() => onRemove(id)}>
           <DeleteBox>
             {/* <FontAwesomeIcon icon={faXmark} /> */}

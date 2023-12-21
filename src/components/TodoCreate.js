@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
+  /* max-width: 230px;
+  width: 100%; */
   display: flex;
   flex-direction: row;
   /* justify-content: center; */
@@ -28,7 +30,7 @@ const TextInput = styled.input`
 `;
 const InputBox = styled.div`
   margin: 0 auto;
-  justify-content: c;
+  justify-content: center;
 `;
 const InputBtn = styled.button`
   margin: 0 auto;
@@ -45,6 +47,7 @@ const InputBtn = styled.button`
   border: none;
   position: absolute;
   left: 340px;
+  cursor: pointer;
 `;
 
 export const TodoCreate = (props) => {
@@ -85,7 +88,7 @@ export const TodoCreate = (props) => {
             autocomplete="off"
             value={con}
             onChange={handleChange}
-            maxLength={20}
+            maxLength={200}
           />
           <InputBox>
             <InputBtn
