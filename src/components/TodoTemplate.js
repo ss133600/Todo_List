@@ -41,11 +41,6 @@ export const TodoTemplate = () => {
     setThings(things.concat(todo));
     nextId.current += 1;
     // console.log(todo);
-    // setText(nextId);
-    // localStorage.setItem("things", JSON.stringify(todo));
-    // // localStorage.setItem("things", JSON.stringify[...todo,);
-
-    // console.log;
   };
 
   const onUpdate = (updateText, id) => {
@@ -60,12 +55,7 @@ export const TodoTemplate = () => {
         return todo;
       })
     );
-    // localStorage.setItem("things", JSON.stringify(onUpdate));
   };
-
-  // const saveText = (text) => {
-  //   setThings([...things, text]);
-  // };
 
   const onRemove = (id) => {
     setThings(things.filter((todo) => todo.id !== id));
