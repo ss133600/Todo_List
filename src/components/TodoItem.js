@@ -4,7 +4,6 @@ import {
   faPencil,
   faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
-// import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import styled from "styled-components";
@@ -16,9 +15,7 @@ const TodoItemBox = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  /* margin-top: 40px; */
   margin: 0px 10px;
-  /* padding-top: 40px; */
 `;
 const DoneBtn = styled.button`
   display: flex;
@@ -29,13 +26,9 @@ const DoneBtn = styled.button`
   border-radius: 50%;
   cursor: pointer;
   border: 3.5px solid #f0f0f0;
-  /* color: white; */
   background-color: transparent;
-  /* background-color: aliceblue; */
 `;
 const CheckBox = styled.div`
-  /* width: 20px;
-  height: 20px; */
   align-items: center;
   font-size: 30px;
   color: #ff7a7a;
