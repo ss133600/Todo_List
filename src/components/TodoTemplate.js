@@ -21,15 +21,10 @@ const TodoTemplateBox = styled.div`
 `;
 
 export const TodoTemplate = () => {
-  const [things, setThings] = useState(
-    localStorage.getItem("todoItems")
-      ? JSON.parse(localStorage.getItem("todoItems"))
-      : []
-  );
+  const [things, setThings] = useState();
   console.log(things);
 
   const nextId = useRef(0);
-  // console.log(nextId);
 
   const handleSubmit = (text) => {
     const todo = {
@@ -59,7 +54,6 @@ export const TodoTemplate = () => {
 
   const onRemove = (id) => {
     setThings(things.filter((todo) => todo.id !== id));
-    localStorage.setItem("things", JSON.stringify(onRemove));
   };
 
   const onToggle = (id) => {

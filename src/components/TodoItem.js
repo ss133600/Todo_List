@@ -85,23 +85,11 @@ export const TodoItem = ({ todo, onRemove, onToggle, onUpdate }) => {
   const { id, text, checked } = todo;
   //TodoList에서 props로 넘김
   const [edited, setEdited] = useState(false);
-  // const [newText, setNewTest] = useState(TodoItem.text);
-  // const onChangeEditInput = (e) => {
-  //   setNewTest(e.target.value);
-  // };
+
   const onClickEditButton = () => {
     setEdited(true);
   };
 
-  // const onClickSubmitButton = () => {
-  //   const nextTodoList = TodoItem.map((todo) => ({
-  //     ...todo,
-  //     text: todo.id === TodoItem.id ? newText : todo.text,
-  //   }));
-  //   TodoItem(nextTodoList);
-
-  //   setEdited(false);
-  // };
   return (
     <>
       <TodoItemBox>
